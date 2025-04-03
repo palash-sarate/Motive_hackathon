@@ -1,6 +1,11 @@
 {
     "cSpell.words": [
+        "coref",
+        "coreference",
         "coreferences",
+        "FAISS",
+        "neuralcoref",
+        "ntotal",
         "punkt"
     ]
 }

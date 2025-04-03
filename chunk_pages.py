@@ -1,7 +1,7 @@
-import os
-import glob
+# import os
+# import glob
+# from bs4 import BeautifulSoup
 import re
-from bs4 import BeautifulSoup
 import nltk
 from nltk.tokenize import sent_tokenize
 import json
@@ -14,18 +14,16 @@ nltk.download('punkt_tab')
 # Note: You'll need to install and configure a coreference resolution package such as neuralcoref.
 #
 # import spacy
-# import neuralcoref
-#
+
 # def init_nlp():
-#     nlp = spacy.load('en_core_web_sm')
-#     neuralcoref.add_to_pipe(nlp)
+#     nlp = spacy.load('en_coreference_web_trf')
 #     return nlp
-#
+
 # nlp = init_nlp()
-#
+
 # def resolve_coreferences(text):
 #     doc = nlp(text)
-#     return doc._.coref_resolved
+#     return doc._.coref_resolved_text
 #
 # For now, we'll use a dummy function that returns the text as is.
 
