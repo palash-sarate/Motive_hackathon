@@ -1,7 +1,7 @@
 import json
 import numpy as np
 import faiss
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
 
 # Load preprocessed text chunks from a JSON file.
 def load_chunks(json_file="processed_text_chunks.json"):
@@ -13,12 +13,12 @@ def load_chunks(json_file="processed_text_chunks.json"):
 # text-embedding-ada-002
 # all-MiniLM-L6-v2
 # all-MiniLM-L12-v2
-def generate_embeddings(chunks, model_name="all-MiniLM-L6-v2"):
-    model = SentenceTransformer(model_name)
-    texts = [chunk["chunk_text"] for chunk in chunks]
-    # The model returns a numpy array of shape (num_chunks, embedding_dim)
-    embeddings = model.encode(texts, convert_to_numpy=True)
-    return embeddings
+# def generate_embeddings(chunks, model_name="all-MiniLM-L6-v2"):
+#     model = SentenceTransformer(model_name)
+#     texts = [chunk["chunk_text"] for chunk in chunks]
+#     # The model returns a numpy array of shape (num_chunks, embedding_dim)
+#     embeddings = model.encode(texts, convert_to_numpy=True)
+#     return embeddings
 
 # Build and index embeddings using FAISS.
 def build_faiss_index(embeddings):
@@ -42,9 +42,15 @@ def main():
     print(f"Loaded {len(chunks)} chunks.")
 
     # Step 2: Generate embeddings.
-    embeddings = generate_embeddings(chunks)
-    print("Embeddings generated. Shape:", embeddings.shape)
-
+    # embeddings = generate_embeddings(chunks)
+    # print("Embeddings generated. Shape:", embeddings.shape)
+    # # save embeddings to file
+    # np.save("embeddings.npy", embeddings)
+    
+    # Load embeddings from file
+    embeddings = np.load("embeddings_all-MiniLM-L12-v2.npy")
+    print("Embeddings loaded. Shape:", embeddings.shape)
+    
     # Step 3: Build FAISS index.
     index = build_faiss_index(embeddings)
     print("FAISS index built. Number of vectors indexed:", index.ntotal)
