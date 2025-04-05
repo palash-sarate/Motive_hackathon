@@ -4,6 +4,7 @@
         "coreference",
         "coreferences",
         "FAISS",
+        "huggingface",
         "neuralcoref",
         "ntotal",
         "punkt"
