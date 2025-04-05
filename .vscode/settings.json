@@ -3,6 +3,7 @@
         "coref",
         "coreference",
         "coreferences",
+        "dotenv",
         "FAISS",
         "huggingface",
         "neuralcoref",
